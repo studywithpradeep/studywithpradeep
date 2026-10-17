@@ -1,0 +1,3655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>studywithpradeep</title>
+<meta name="dpp-version" content="dpp-fix-4">
+
+<meta
+  name="description"
+  content="studywithpradeep - Study Material and Practice"
+>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:#172033;
+  background:#f7f9fc;
+  line-height:1.6;
+}
+
+.container{
+  width:min(1150px,92%);
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:white;
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.nav-wrap{
+  min-height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#172033;
+}
+
+.brand-mark{
+  width:48px;
+  height:48px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#3548d4,#7258e8);
+  color:white;
+  font-weight:800;
+  font-size:16px;
+}
+
+.brand strong{
+  display:block;
+  font-size:17px;
+}
+
+.brand small{
+  display:block;
+  color:#667085;
+  font-size:11px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:17px;
+}
+
+nav a{
+  text-decoration:none;
+  color:#344054;
+  font-size:14px;
+  font-weight:600;
+}
+
+nav a:hover{
+  color:#4355d8;
+}
+
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* =========================
+   AUTH BUTTON
+========================= */
+
+.auth-area{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.auth-btn{
+  border:0;
+  background:#4355d8;
+  color:white;
+  padding:9px 14px;
+  border-radius:9px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:13px;
+}
+
+.auth-name{
+  font-size:13px;
+  font-weight:700;
+  color:#344054;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:linear-gradient(135deg,#eef2ff,#ffffff);
+  padding:90px 0;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:55px;
+  align-items:center;
+}
+
+.eyebrow{
+  display:inline-block;
+  color:#4355d8;
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.hero h1{
+  font-size:52px;
+  line-height:1.08;
+  margin:18px 0;
+}
+
+.hero h1 span{
+  color:#4355d8;
+}
+
+.hero-text{
+  color:#667085;
+  font-size:18px;
+  max-width:650px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:12px;
+  margin-top:28px;
+}
+
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:700;
+}
+
+.primary{
+  background:#4355d8;
+  color:white;
+}
+
+.secondary{
+  background:white;
+  color:#344054;
+  border:1px solid #d9dee8;
+}
+
+.small{
+  padding:9px 14px;
+  font-size:13px;
+}
+
+.hero-card{
+  background:white;
+  border:1px solid #e1e6ef;
+  border-radius:24px;
+  padding:45px 30px;
+  text-align:center;
+  box-shadow:0 18px 45px rgba(30,45,80,.10);
+}
+
+.hero-icon{
+  width:130px;
+  height:130px;
+  margin:auto;
+  border-radius:30px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#4355d8,#7659e8);
+  color:white;
+  font-size:38px;
+  font-weight:900;
+}
+
+.hero-card h3{
+  margin-top:20px;
+}
+
+.hero-card p{
+  color:#667085;
+  margin-top:8px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+  padding:70px 0;
+  background:white;
+}
+
+.section.alt{
+  background:#f3f6fa;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:28px;
+}
+
+.section-head h2,
+.narrow h2{
+  font-size:32px;
+  margin-top:4px;
+}
+
+/* =========================
+   ANNOUNCEMENTS
+========================= */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+.announcement-card{
+  background:white;
+  border:1px solid #e1e6ef;
+  border-radius:15px;
+  padding:22px;
+}
+
+.announcement-card h3{
+  margin-bottom:7px;
+}
+
+.announcement-card p{
+  color:#667085;
+}
+
+.pin{
+  display:inline-block;
+  background:#e9edff;
+  color:#4355d8;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:8px;
+}
+
+.announcement-date{
+  display:block;
+  color:#98a2b3;
+  font-size:12px;
+  margin-top:12px;
+}
+
+/* =========================
+   MATERIAL
+========================= */
+
+.material-selector{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.material-selector select{
+  width:100%;
+  padding:14px;
+  border:1px solid #d9dee8;
+  border-radius:10px;
+  background:white;
+  color:#172033;
+  font-size:15px;
+  cursor:pointer;
+  outline:none;
+}
+
+.material-selector select:disabled{
+  background:#f2f4f7;
+  color:#98a2b3;
+}
+
+.material-result{
+  margin-top:25px;
+}
+
+.material-result-card{
+  background:white;
+  border:1px solid #e0e5ed;
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 8px 25px rgba(30,45,80,.06);
+}
+
+.material-result-card h3{
+  margin-bottom:5px;
+}
+
+.material-info{
+  color:#667085;
+  margin-bottom:18px;
+}
+
+.material-empty{
+  padding:18px;
+  border-radius:12px;
+  background:#f8fafc;
+  border:1px dashed #d0d5dd;
+  color:#667085;
+}
+
+.material-list{
+  display:grid;
+  gap:12px;
+}
+
+.material-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:15px;
+  border:1px solid #e4e7ec;
+  border-radius:12px;
+  background:white;
+}
+
+.material-item-info strong{
+  display:block;
+  margin-bottom:3px;
+}
+
+.material-item-info span{
+  color:#667085;
+  font-size:13px;
+}
+
+.material-download{
+  flex-shrink:0;
+  background:#4355d8;
+  color:white;
+  text-decoration:none;
+  padding:8px 13px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* =========================
+   DOUBT SECTION
+========================= */
+
+.doubt-login-box{
+  background:white;
+  border:1px solid #e0e5ed;
+  border-radius:16px;
+  padding:28px;
+  text-align:center;
+}
+
+.doubt-login-box h3{
+  margin-bottom:8px;
+}
+
+.doubt-login-box p{
+  color:#667085;
+  margin-bottom:18px;
+}
+
+.doubt-layout{
+  display:grid;
+  grid-template-columns:380px 1fr;
+  gap:25px;
+  align-items:start;
+}
+
+.doubt-form-card,
+.doubt-list-card{
+  background:white;
+  border:1px solid #e0e5ed;
+  border-radius:16px;
+  padding:25px;
+  box-shadow:0 8px 25px rgba(30,45,80,.05);
+}
+
+.doubt-form-card h3,
+.doubt-list-card h3{
+  margin-bottom:5px;
+}
+
+.doubt-subtitle{
+  color:#667085;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.doubt-form-group{
+  margin-bottom:15px;
+}
+
+.doubt-form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.doubt-form-group select,
+.doubt-form-group textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d9dee8;
+  border-radius:9px;
+  outline:none;
+  font-size:14px;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+.doubt-form-group textarea{
+  min-height:150px;
+  resize:vertical;
+}
+
+.doubt-form-group select:focus,
+.doubt-form-group textarea:focus{
+  border-color:#4355d8;
+}
+
+.doubt-submit{
+  width:100%;
+}
+
+.doubt-list{
+  display:grid;
+  gap:15px;
+}
+
+.doubt-card{
+  border:1px solid #e1e6ef;
+  border-radius:13px;
+  padding:18px;
+  background:#fbfcfe;
+}
+
+.doubt-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.doubt-subject{
+  font-weight:800;
+  color:#4355d8;
+}
+
+.doubt-status{
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.doubt-status.pending{
+  background:#fff7e6;
+  color:#b54708;
+}
+
+.doubt-status.replied{
+  background:#ecfdf3;
+  color:#027a48;
+}
+
+.doubt-text{
+  color:#344054;
+  white-space:pre-wrap;
+}
+
+.doubt-date{
+  color:#98a2b3;
+  font-size:12px;
+  margin-top:10px;
+}
+
+.doubt-reply{
+  margin-top:15px;
+  padding:15px;
+  border-left:4px solid #4355d8;
+  background:#eef2ff;
+  border-radius:8px;
+}
+
+.doubt-reply strong{
+  display:block;
+  margin-bottom:5px;
+  color:#344054;
+}
+
+.doubt-reply p{
+  color:#344054;
+  white-space:pre-wrap;
+}
+
+.doubt-empty{
+  padding:20px;
+  border:1px dashed #d0d5dd;
+  border-radius:12px;
+  color:#667085;
+  text-align:center;
+}
+
+.doubt-message{
+  display:none;
+  margin-top:13px;
+  padding:10px;
+  border-radius:8px;
+  font-size:13px;
+  word-break:break-word;
+}
+
+.doubt-message.show{
+  display:block;
+}
+
+.doubt-message.success{
+  background:#ecfdf3;
+  color:#027a48;
+}
+
+.doubt-message.error{
+  background:#fef3f2;
+  color:#b42318;
+}
+
+/* =========================
+   DPP QUIZ STYLES
+========================= */
+
+.dpp-list{
+  display:grid;
+  gap:16px;
+  margin-top:20px;
+}
+
+.dpp-card{
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 8px 24px rgba(16,24,40,.06);
+}
+
+.dpp-card h3{
+  margin:0 0 8px;
+}
+
+.dpp-card p{
+  margin:6px 0;
+  color:#667085;
+}
+
+.dpp-card button{
+  margin-top:12px;
+}
+
+.dpp-quiz-card{
+  margin-top:24px;
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 10px 30px rgba(16,24,40,.08);
+}
+
+.dpp-progress{
+  color:#667085;
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.dpp-question{
+  font-size:20px;
+  line-height:1.55;
+  font-weight:700;
+  margin:10px 0 18px;
+}
+
+.dpp-option{
+  display:block;
+  padding:14px 16px;
+  margin:10px 0;
+  border:1px solid #d0d5dd;
+  border-radius:12px;
+  cursor:pointer;
+  background:#fff;
+  transition:.15s ease;
+}
+
+.dpp-option:hover{
+  border-color:#98a2b3;
+  background:#f9fafb;
+}
+
+.dpp-option.selected{
+  border-color:#175cd3;
+  background:#eff8ff;
+}
+
+.dpp-option input{
+  margin-right:10px;
+}
+
+.dpp-actions{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.dpp-result{
+  margin-top:24px;
+  padding:22px;
+  border-radius:18px;
+  background:#f8fafc;
+  border:1px solid #e4e7ec;
+}
+
+.dpp-score{
+  font-size:30px;
+  font-weight:800;
+  margin:8px 0;
+}
+
+.dpp-stat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.dpp-stat{
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+}
+
+.dpp-review{
+  margin-top:20px;
+}
+
+.dpp-review-item{
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:12px;
+  padding:15px;
+  margin-top:12px;
+}
+
+.dpp-review-item.correct{
+  border-left:5px solid #12b76a;
+}
+
+.dpp-review-status{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.dpp-review-status.correct{
+  background:#ecfdf3;
+  color:#027a48;
+}
+
+.dpp-review-status.wrong{
+  background:#fef3f2;
+  color:#b42318;
+}
+
+.dpp-review-status.unattempted{
+  background:#f2f4f7;
+  color:#475467;
+}
+
+.dpp-review-item.wrong{
+  border-left:5px solid #f04438;
+}
+
+.dpp-review-item.unattempted{
+  border-left:5px solid #98a2b3;
+}
+
+.dpp-message{
+  padding:14px;
+  border-radius:12px;
+  background:#f9fafb;
+  color:#475467;
+  margin-top:16px;
+}
+
+@media(max-width:700px){
+  .dpp-stat-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .dpp-question{
+    font-size:18px;
+  }
+}
+
+
+
+
+/* =========================
+   DPP FULLSCREEN QUIZ
+========================= */
+.dpp-fullscreen{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:12000;
+  background:#f8fafc;
+  overflow-y:auto;
+}
+.dpp-fullscreen.show{display:block;}
+.dpp-fullscreen-head{
+  position:sticky;
+  top:0;
+  z-index:2;
+  background:#fff;
+  border-bottom:1px solid #e4e7ec;
+  padding:14px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+.dpp-fullscreen-title{font-size:20px;font-weight:800;}
+.dpp-fullscreen-body{max-width:950px;margin:0 auto;padding:28px 18px 50px;}
+.dpp-fullscreen .dpp-quiz-card,
+.dpp-fullscreen .dpp-result{margin-top:0;background:#fff;}
+.dpp-cancel{border:1px solid #d0d5dd;background:#fff;color:#344054;border-radius:9px;padding:10px 16px;font-weight:700;cursor:pointer;}
+.dpp-cancel:hover{background:#f2f4f7;}
+@media(max-width:700px){
+ .dpp-fullscreen-head{padding:12px 14px;}
+ .dpp-fullscreen-title{font-size:17px;}
+ .dpp-fullscreen-body{padding:18px 12px 35px;}
+}
+
+
+/* =========================
+   COMMUNITY
+========================= */
+.community-launch-card{background:#fff;border:1px solid #e0e5ed;border-radius:18px;padding:28px;display:flex;align-items:center;gap:20px;box-shadow:0 8px 25px rgba(30,45,80,.05)}
+.community-launch-icon{width:58px;height:58px;border-radius:16px;background:#eef2ff;display:flex;align-items:center;justify-content:center;font-size:28px;flex:0 0 auto}
+.community-launch-content{flex:1}
+.community-launch-content h2{margin:5px 0 6px}
+.community-launch-content p{margin:0;color:#667085}
+.community-start-btn{white-space:nowrap}
+.community-fullscreen-panel{display:none;position:fixed;inset:0;width:100vw;height:100vh;z-index:99999;background:#f7f9fc;overflow-y:auto;box-sizing:border-box}
+.community-fullscreen-panel.show{display:block}
+.community-fullscreen-head{position:sticky;top:0;z-index:3;background:#fff;border-bottom:1px solid #e4e7ec;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.community-fullscreen-title{font-size:22px;font-weight:800;color:#172033;margin-top:3px}
+.community-fullscreen-body{max-width:1200px;margin:0 auto;padding:28px 20px 50px}
+.community-close-btn{border:1px solid #d9dee8;background:#fff;color:#344054;border-radius:10px;padding:9px 14px;cursor:pointer;font-weight:700;font-size:13px;box-shadow:0 2px 8px rgba(30,45,80,.06)}
+.community-close-btn:hover{background:#f2f4f7}
+body.community-open{overflow:hidden}
+.community-layout{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
+.community-create-card,.community-feed-card{background:white;border:1px solid #e0e5ed;border-radius:16px;padding:22px;box-shadow:0 8px 25px rgba(30,45,80,.05)}
+.community-create-card{position:sticky;top:95px}
+.community-create-card h3,.community-feed-card h3{margin-bottom:5px}
+.community-subtitle{color:#667085;font-size:13px;margin-bottom:18px}
+.community-form-group{margin-bottom:14px}
+.community-form-group label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.community-form-group input,.community-form-group textarea{width:100%;padding:12px;border:1px solid #d9dee8;border-radius:9px;outline:none;font-size:14px;font-family:Arial,Helvetica,sans-serif}
+.community-form-group input:focus,.community-form-group textarea:focus{border-color:#4355d8}
+.community-form-group textarea{min-height:135px;resize:vertical}
+.community-submit{width:100%}
+.community-message{display:none;margin-top:12px;padding:10px;border-radius:8px;font-size:13px;word-break:break-word}
+.community-message.show{display:block}.community-message.success{background:#ecfdf3;color:#027a48}.community-message.error{background:#fef3f2;color:#b42318}
+.community-feed{display:grid;gap:15px}
+.community-post{border:1px solid #e1e6ef;border-radius:14px;padding:18px;background:#fbfcfe}
+.community-post-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.community-post-title{font-size:17px;font-weight:800;color:#172033}
+.community-post-author{color:#667085;font-size:12px;margin-top:3px}
+.community-post-date{color:#98a2b3;font-size:11px;white-space:nowrap}
+.community-post-content{margin-top:13px;color:#344054;white-space:pre-wrap;word-break:break-word}
+.community-actions{display:flex;align-items:center;gap:9px;margin-top:15px;flex-wrap:wrap}
+.community-action-btn{border:1px solid #d9dee8;background:white;color:#344054;border-radius:9px;padding:7px 11px;cursor:pointer;font-size:12px;font-weight:700}
+.community-action-btn:hover{background:#f2f4f7}.community-action-btn.liked{background:#eef2ff;border-color:#aab5ff;color:#4355d8}
+.community-comments{margin-top:15px;padding-top:14px;border-top:1px solid #e4e7ec}
+.community-comment-list{display:grid;gap:9px;margin-bottom:12px}
+.community-comment{background:white;border:1px solid #e4e7ec;border-radius:10px;padding:10px 12px}
+.community-comment-head{display:flex;justify-content:space-between;gap:10px;font-size:12px}
+.community-comment-head strong{color:#344054}.community-comment-date{color:#98a2b3;white-space:nowrap}
+.community-comment-text{color:#475467;font-size:13px;margin-top:4px;white-space:pre-wrap;word-break:break-word}
+.community-comment-form{display:flex;gap:8px}
+.community-comment-form input{flex:1;min-width:0;padding:10px 11px;border:1px solid #d9dee8;border-radius:9px;outline:none;font-size:13px}
+.community-comment-form input:focus{border-color:#4355d8}
+.community-empty{padding:25px;border:1px dashed #d0d5dd;border-radius:12px;color:#667085;text-align:center}
+.community-loading{padding:20px;text-align:center;color:#667085}
+@media(max-width:950px){.community-layout{grid-template-columns:1fr}.community-create-card{position:static}}
+@media(max-width:550px){.community-post-top{flex-direction:column}.community-post-date{white-space:normal}.community-comment-form{flex-direction:column}.community-comment-form button{width:100%}}
+
+/* =========================
+   RESULTS
+========================= */
+
+.result-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.result-card{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  background:white;
+  border:1px solid #e1e6ef;
+  border-radius:16px;
+  padding:25px;
+}
+
+.result-number{
+  width:70px;
+  height:70px;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  background:#e9edff;
+  color:#4355d8;
+  font-size:27px;
+  font-weight:900;
+  flex-shrink:0;
+}
+
+.result-card p{
+  color:#667085;
+  margin:5px 0 14px;
+}
+
+.student-result-list{
+  margin-top:25px;
+  display:grid;
+  gap:12px;
+}
+
+.student-result-item{
+  background:white;
+  border:1px solid #e1e6ef;
+  border-radius:12px;
+  padding:17px;
+}
+
+.student-result-item strong{
+  display:block;
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.student-result-item span{
+  color:#667085;
+  font-size:14px;
+  display:block;
+  margin-top:3px;
+}
+
+/* =========================
+   TEACHERS
+========================= */
+
+.teacher-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
+}
+
+.teacher-card{
+  background:white;
+  border:1px solid #e0e5ed;
+  border-radius:16px;
+  padding:24px;
+  text-align:center;
+}
+
+.teacher-avatar{
+  width:70px;
+  height:70px;
+  margin:auto;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#e9edff;
+  color:#4355d8;
+  font-size:22px;
+  font-weight:800;
+}
+
+.teacher-card h3{
+  margin-top:13px;
+}
+
+.teacher-card p{
+  color:#667085;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.narrow{
+  max-width:850px;
+}
+
+.large{
+  color:#667085;
+  font-size:18px;
+  margin-top:15px;
+}
+
+.about-info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.info-box{
+  background:#f5f7fa;
+  border-radius:12px;
+  padding:18px;
+}
+
+.info-box strong{
+  display:block;
+  margin-bottom:5px;
+}
+
+.info-box span{
+  color:#667085;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-section{
+  background:#f3f6fa;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center;
+}
+
+.contact-card{
+  background:white;
+  border:1px solid #e0e5ed;
+  border-radius:16px;
+  padding:25px;
+}
+
+.contact-card p{
+  margin:13px 0;
+}
+
+.contact-card a{
+  color:#4355d8;
+  font-weight:700;
+  text-decoration:none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#101828;
+  color:white;
+  padding:32px 0;
+}
+
+.footer-wrap{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.footer-wrap span{
+  color:#b7c0cc;
+}
+
+/* =========================
+   AUTH MODAL
+========================= */
+
+.auth-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  background:rgba(16,24,40,.55);
+  padding:20px;
+  align-items:center;
+  justify-content:center;
+}
+
+.auth-modal.show{
+  display:flex;
+}
+
+.auth-box{
+  width:min(450px,100%);
+  background:white;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  position:relative;
+}
+
+.auth-close{
+  position:absolute;
+  right:18px;
+  top:14px;
+  border:0;
+  background:none;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.auth-box h2{
+  margin-bottom:5px;
+}
+
+.auth-subtitle{
+  color:#667085;
+  font-size:14px;
+  margin-bottom:22px;
+}
+
+.auth-tabs{
+  display:flex;
+  gap:8px;
+  margin-bottom:20px;
+}
+
+.auth-tab{
+  flex:1;
+  padding:10px;
+  border:1px solid #d9dee8;
+  background:white;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.auth-tab.active{
+  background:#4355d8;
+  color:white;
+  border-color:#4355d8;
+}
+
+.auth-form{
+  display:none;
+}
+
+.auth-form.active{
+  display:block;
+}
+
+.form-group{
+  margin-bottom:14px;
+}
+
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:12px;
+  border:1px solid #d9dee8;
+  border-radius:9px;
+  outline:none;
+  font-size:14px;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  border-color:#4355d8;
+}
+
+.auth-submit{
+  width:100%;
+  margin-top:6px;
+}
+
+.auth-message{
+  margin-top:14px;
+  padding:11px;
+  border-radius:8px;
+  font-size:13px;
+  display:none;
+}
+
+.auth-message.show{
+  display:block;
+}
+
+.auth-message.success{
+  background:#ecfdf3;
+  color:#027a48;
+}
+
+.auth-message.error{
+  background:#fef3f2;
+  color:#b42318;
+}
+
+.logged-box{
+  display:none;
+}
+
+.logged-box.show{
+  display:block;
+}
+
+.logged-box p{
+  color:#667085;
+  margin:10px 0 18px;
+}
+
+.loading{
+  text-align:center;
+  padding:20px;
+  color:#667085;
+}
+
+
+/* =========================
+   STUDENT REGISTRATION GATE
+========================= */
+
+.registration-gate{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  background:linear-gradient(135deg,#eef2ff,#f8fafc);
+  overflow-y:auto;
+  padding:30px 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.registration-gate.hidden{
+  display:none;
+}
+
+.registration-box{
+  width:min(620px,100%);
+  background:white;
+  border:1px solid #e1e6ef;
+  border-radius:22px;
+  padding:30px;
+  box-shadow:0 20px 60px rgba(30,45,80,.14);
+}
+
+.registration-brand{
+  text-align:center;
+  margin-bottom:24px;
+}
+
+.registration-brand .brand-mark{
+  width:62px;
+  height:62px;
+  margin:0 auto 12px;
+  font-size:18px;
+}
+
+.registration-brand h1{
+  font-size:25px;
+  line-height:1.2;
+  margin-bottom:6px;
+}
+
+.registration-brand p{
+  color:#667085;
+  font-size:14px;
+}
+
+.registration-form{
+  display:grid;
+  gap:14px;
+}
+
+.registration-form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.registration-form-group input,
+.registration-form-group textarea,
+.registration-form-group select{
+  width:100%;
+  padding:12px;
+  border:1px solid #d9dee8;
+  border-radius:9px;
+  outline:none;
+  font-size:14px;
+  font-family:Arial,Helvetica,sans-serif;
+  background:white;
+}
+
+.registration-form-group textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.registration-form-group input:focus,
+.registration-form-group textarea:focus,
+.registration-form-group select:focus{
+  border-color:#4355d8;
+}
+
+.registration-submit{
+  width:100%;
+  margin-top:5px;
+}
+
+.registration-message{
+  display:none;
+  padding:11px;
+  border-radius:8px;
+  font-size:13px;
+}
+
+.registration-message.show{
+  display:block;
+}
+
+.registration-message.error{
+  background:#fef3f2;
+  color:#b42318;
+}
+
+.registration-message.success{
+  background:#ecfdf3;
+  color:#027a48;
+}
+
+.registration-note{
+  text-align:center;
+  color:#98a2b3;
+  font-size:12px;
+  margin-top:12px;
+}
+
+@media(max-width:550px){
+  .registration-box{
+    padding:22px 18px;
+    border-radius:17px;
+  }
+
+  .registration-brand h1{
+    font-size:21px;
+  }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+  .menu-btn{
+    display:block;
+  }
+
+  nav{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:75px;
+    background:white;
+    padding:20px 6%;
+    flex-direction:column;
+    align-items:flex-start;
+    border-bottom:1px solid #ddd;
+  }
+
+  nav.show{
+    display:flex;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .result-grid,
+  .contact-grid,
+  .doubt-layout{
+    grid-template-columns:1fr;
+  }
+
+  .material-selector{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:550px){
+
+  .brand strong{
+    font-size:12px;
+  }
+
+  .brand small{
+    font-size:9px;
+  }
+
+  .auth-name{
+    display:none;
+  }
+
+  .hero{
+    padding:60px 0;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .hero-text{
+    font-size:16px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .hero-actions .btn{
+    text-align:center;
+  }
+
+  .section{
+    padding:50px 0;
+  }
+
+  .section-head h2,
+  .narrow h2{
+    font-size:27px;
+  }
+
+  .about-info{
+    grid-template-columns:1fr;
+  }
+
+  .footer-wrap{
+    flex-direction:column;
+  }
+
+  .material-item{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .doubt-card-top{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+}
+
+
+
+
+
+
+@media(max-width:700px){
+  .community-launch-card{flex-direction:column;align-items:flex-start;padding:22px}
+  .community-start-btn{width:100%}
+  .community-fullscreen-head{padding:13px 14px}
+  .community-fullscreen-title{font-size:18px}
+  .community-fullscreen-body{padding:18px 12px 35px}
+  .community-layout{grid-template-columns:1fr}
+  .community-create-card{position:static}
+}
+</style>
+</head>
+
+<body>
+
+
+<header class="site-header">
+
+  <div class="container nav-wrap">
+
+    <a class="brand" href="#home">
+
+      <span class="brand-mark">SWP</span>
+
+      <span>
+        <strong>studywithpradeep</strong>
+        <small>Learn • Practice • Improve • Succeed</small>
+      </span>
+
+    </a>
+
+    <button
+      class="menu-btn"
+      onclick="toggleMenu()"
+      aria-label="Open Menu"
+    >
+      ☰
+    </button>
+
+    <nav id="nav">
+
+      <a href="#home">Home</a>
+      <a href="#material">Study Material</a>
+      <a href="#dpp">DPP Quiz</a>
+      </nav></div>
+
+</header>
+
+
+<main id="home">
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+  <div class="container hero-grid">
+
+    <div>
+
+      <span class="eyebrow">WELCOME TO</span>
+
+      <h1>
+        studywithpradeep
+      </h1>
+
+      <p class="hero-text">
+        Your personal study space for learning, practice and progress.
+      </p>
+
+      <div class="hero-actions">
+
+        <a class="btn primary" href="#material">
+          📚 Study Material
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-card">
+
+      <div class="hero-icon">SWP</div>
+
+      <h3>
+        Learn • Practice • Improve • Succeed
+      </h3>
+
+      <p>
+        Study resources for Class 9 to Class 12 students.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ANNOUNCEMENTS
+========================= -->
+
+
+
+
+<!-- =========================
+     STUDY MATERIAL
+========================= -->
+
+<section class="section alt" id="material">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <span class="eyebrow">LEARN & PRACTICE</span>
+        <h2>Study Material</h2>
+      </div>
+
+    </div>
+
+    <p style="color:#667085;margin-bottom:25px;">
+      Select your class, subject and material type.
+    </p>
+
+    <div class="material-selector">
+
+      <select id="classSelect" onchange="loadSubjects()">
+
+        <option value="">Select Class</option>
+
+        <option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+        <option value="11">Class 11</option>
+        <option value="12">Class 12</option>
+
+      </select>
+
+      <select
+        id="subjectSelect"
+        onchange="loadMaterialTypes()"
+        disabled
+      >
+
+        <option value="">Select Subject</option>
+
+      </select>
+
+      <select
+        id="materialSelect"
+        onchange="showMaterials()"
+        disabled
+      >
+
+        <option value="">Select Material Type</option>
+
+      </select>
+
+    </div>
+
+    <div
+      id="materialResult"
+      class="material-result"
+    ></div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     DPP QUIZ
+========================= -->
+
+<section class="section" id="dpp">
+
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">DAILY PRACTICE</span>
+        <h2>DPP Quiz</h2>
+      </div>
+    </div>
+
+    <p style="color:#667085;margin-bottom:25px;">
+      Apni class aur subject select karke available DPP solve karein.
+    </p>
+
+    <div class="material-selector">
+      <select id="dppClassSelect" onchange="loadStudentDPPSubjects()">
+        <option value="">Select Class</option>
+        <option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+        <option value="11">Class 11</option>
+        <option value="12">Class 12</option>
+      </select>
+
+      <select id="dppSubjectSelect" onchange="loadStudentDPPs()">
+        <option value="">Select Subject</option>
+      </select>
+    </div>
+
+    <div id="dppList" class="dpp-list"></div>
+    <div id="dppQuizArea"></div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     COMMUNITY
+========================= -->
+
+<!-- =========================
+     DOUBT SECTION
+========================= -->
+
+
+
+
+<!-- =========================
+     RESULTS
+========================= -->
+
+
+
+
+<!-- =========================
+     TEACHERS
+========================= -->
+
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-wrap">
+
+    <strong>
+      studywithpradeep
+    </strong>
+
+    <span>
+      Learn • Practice • Improve • Succeed
+    </span>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   COMMUNITY
+========================= */
+async function getCommunityStudent(){
+  const student=getSavedStudentRegistration();
+  if(!student||!student.id||!student.student_name){return null;}
+  try{
+    const {data,error}=await supabaseClient.from("student_registrations").select("id,student_name,is_active").eq("id",student.id).maybeSingle();
+    if(error){console.error("Community student verification error:",error);return null;}
+    if(!data||data.is_active===false){
+      localStorage.removeItem(STUDENT_REGISTRATION_STORAGE_KEY);
+      updateRegistrationUI();
+      return null;
+    }
+    return {...student,id:data.id,student_name:data.student_name};
+  }catch(error){console.error("Community student verification exception:",error);return null;}
+}
+function showCommunityMessage(message,type){
+  const box=document.getElementById("communityMessage"); if(!box)return;
+  box.textContent=message; box.className="community-message show "+type;
+  setTimeout(()=>{box.className="community-message";},4000);
+}
+function formatCommunityDate(value){
+  if(!value)return "";
+  const date=new Date(value); if(Number.isNaN(date.getTime()))return "";
+  return date.toLocaleString("en-IN",{day:"numeric",month:"short",year:"numeric",hour:"numeric",minute:"2-digit"});
+}
+function openCommunityFullscreen(event){
+  if(event) event.preventDefault();
+  const panel=document.getElementById("communityFullscreenPanel");
+  if(!panel) return;
+  panel.classList.add("show");
+  panel.setAttribute("aria-hidden","false");
+  document.body.classList.add("community-open");
+  history.replaceState(null,"",window.location.pathname+window.location.search+"#community");
+  loadCommunityFeed();
+  window.scrollTo(0,0);
+}
+
+function closeCommunityFullscreen(){
+  const panel=document.getElementById("communityFullscreenPanel");
+  if(!panel) return;
+  panel.classList.remove("show");
+  panel.setAttribute("aria-hidden","true");
+  document.body.classList.remove("community-open");
+  history.replaceState(null,"",window.location.pathname+window.location.search);
+}
+
+async function submitCommunityPost(event){
+  event.preventDefault();
+  const student=await getCommunityStudent();
+  if(!student){showCommunityMessage("Please complete student registration first.","error");return;}
+  const title=document.getElementById("communityPostTitle").value.trim();
+  const content=document.getElementById("communityPostContent").value.trim();
+  if(!title||!content){showCommunityMessage("Please enter both title and post content.","error");return;}
+  const button=document.getElementById("communityPostButton"); button.disabled=true; button.textContent="Publishing...";
+  try{
+    const {error}=await supabaseClient.from("community_posts").insert({student_id:student.id,student_name:student.student_name,title,content});
+    if(error){console.error(error);showCommunityMessage("Post publish nahi ho paya: "+(error.message||"Unknown error"),"error");return;}
+    document.getElementById("communityPostForm").reset();
+    showCommunityMessage("✅ Post published successfully!","success");
+    await loadCommunityFeed();
+  }catch(error){console.error(error);showCommunityMessage("Something went wrong. Please try again.","error");}
+  finally{button.disabled=false;button.textContent="Publish Post";}
+}
+async function toggleCommunityLike(postId){
+  const student=await getCommunityStudent(); if(!student)return;
+  try{
+    const {data:existingLike,error:findError}=await supabaseClient.from("community_likes").select("id").eq("post_id",postId).eq("student_id",student.id).maybeSingle();
+    if(findError){console.error(findError);return;}
+    if(existingLike){
+      const {error}=await supabaseClient.from("community_likes").delete().eq("id",existingLike.id); if(error)console.error(error);
+    }else{
+      const {error}=await supabaseClient.from("community_likes").insert({post_id:postId,student_id:student.id}); if(error)console.error(error);
+    }
+    await loadCommunityFeed();
+  }catch(error){console.error("Community like error:",error);}
+}
+async function submitCommunityComment(postId,event){
+  event.preventDefault();
+  const student=await getCommunityStudent(); if(!student)return;
+  const input=document.getElementById("communityCommentInput_"+postId); if(!input)return;
+  const commentText=input.value.trim(); if(!commentText)return;
+  if(commentText.length>500){alert("Comment 500 characters se zyada nahi hona chahiye.");return;}
+  const button=document.getElementById("communityCommentButton_"+postId); if(button){button.disabled=true;button.textContent="Posting...";}
+  try{
+    const {error}=await supabaseClient.from("community_comments").insert({post_id:postId,student_id:student.id,student_name:student.student_name,comment_text:commentText});
+    if(error){console.error(error);alert("Comment post nahi ho paya: "+(error.message||"Unknown error"));return;}
+    input.value=""; await loadCommunityFeed();
+  }catch(error){console.error(error);alert("Something went wrong. Please try again.");}
+  finally{if(button){button.disabled=false;button.textContent="Comment";}}
+}
+async function deleteCommunityPost(postId){
+  const student=await getCommunityStudent();
+  if(!student){showCommunityMessage("Please complete student registration first.","error");return;}
+  if(!confirm("Kya aap apni post delete karna chahte hain?")) return;
+  try{
+    const {error}=await supabaseClient.rpc("delete_my_community_post",{
+      p_post_id:postId,
+      p_registration_id:student.id
+    });
+    if(error){
+      console.error("Community delete error:",error);
+      showCommunityMessage("Post delete nahi ho payi: "+(error.message||"Unknown error"),"error");
+      return;
+    }
+    showCommunityMessage("✅ Post deleted successfully.","success");
+    await loadCommunityFeed();
+  }catch(error){
+    console.error("Community delete exception:",error);
+    showCommunityMessage("Something went wrong. Please try again.","error");
+  }
+}
+
+async function loadCommunityFeed(){
+  const container=document.getElementById("communityFeed"); if(!container)return;
+  const student=await getCommunityStudent();
+  if(!student){container.innerHTML='<div class="community-empty">👤 Student registration complete karne ke baad Community use kar sakte hain.</div>';return;}
+  container.innerHTML='<div class="community-loading">⏳ Loading community...</div>';
+  try{
+    const {data:posts,error:postError}=await supabaseClient.from("community_posts").select("*").eq("is_active",true).order("created_at",{ascending:false});
+    if(postError){console.error(postError);container.innerHTML='<div class="community-empty">⚠️ Community load nahi ho payi. Please try again.</div>';return;}
+    if(!posts||posts.length===0){container.innerHTML='<div class="community-empty">📝 Abhi koi post nahi hai. Sabse pehla post aap create kar sakte hain.</div>';return;}
+    const postIds=posts.map(p=>p.id);
+    const {data:likes, error:likesError}=await supabaseClient.from("community_likes").select("post_id,student_id").in("post_id",postIds);
+    if(likesError)console.error(likesError);
+    const {data:comments,error:commentsError}=await supabaseClient.from("community_comments").select("*").in("post_id",postIds).eq("is_active",true).order("created_at",{ascending:true});
+    if(commentsError)console.error(commentsError);
+    const likesByPost={},myLikes={},commentsByPost={};
+    (likes||[]).forEach(l=>{likesByPost[l.post_id]=(likesByPost[l.post_id]||0)+1;if(l.student_id===student.id)myLikes[l.post_id]=true;});
+    (comments||[]).forEach(c=>{(commentsByPost[c.post_id]||(commentsByPost[c.post_id]=[])).push(c);});
+    container.innerHTML=posts.map(post=>{
+      const pcs=commentsByPost[post.id]||[], count=likesByPost[post.id]||0, liked=!!myLikes[post.id];
+      const commentsHTML=pcs.length?pcs.map(c=>`<div class="community-comment"><div class="community-comment-head"><strong>${escapeHTML(c.student_name||"Student")}</strong><span class="community-comment-date">${escapeHTML(formatCommunityDate(c.created_at))}</span></div><div class="community-comment-text">${escapeHTML(c.comment_text||"")}</div></div>`).join(""):'<div style="color:#98a2b3;font-size:13px;margin-bottom:12px;">No comments yet.</div>';
+      return `<article class="community-post">
+        <div class="community-post-top"><div><div class="community-post-title">${escapeHTML(post.title)}</div><div class="community-post-author">👤 ${escapeHTML(post.student_name||"Student")}</div></div><div class="community-post-date">${escapeHTML(formatCommunityDate(post.created_at))}</div></div>
+        <div class="community-post-content">${escapeHTML(post.content)}</div>
+        <div class="community-actions">
+          <button class="community-action-btn ${liked?"liked":""}" type="button" onclick="toggleCommunityLike('${post.id}')">${liked?"❤️":"🤍"} Like ${count}</button>
+          <button class="community-action-btn" type="button" onclick="document.getElementById('communityCommentInput_${post.id}').focus()">💬 Comment ${pcs.length}</button>
+          ${post.student_id===student.id?`<button class="community-action-btn community-delete-btn" type="button" onclick="deleteCommunityPost('${post.id}')">🗑️ Delete</button>`:""}
+        </div>
+        <div class="community-comments"><div class="community-comment-list">${commentsHTML}</div>
+          <form class="community-comment-form" onsubmit="submitCommunityComment('${post.id}',event)">
+            <input id="communityCommentInput_${post.id}" type="text" maxlength="500" placeholder="Write a comment..." required>
+            <button id="communityCommentButton_${post.id}" class="community-action-btn" type="submit">Comment</button>
+          </form>
+        </div>
+      </article>`;
+    }).join("");
+  }catch(error){console.error("Community feed error:",error);container.innerHTML='<div class="community-empty">⚠️ Community load nahi ho payi.</div>';}
+}
+
+
+/* =========================
+   SUBJECTS
+========================= */
+
+const subjects = {
+
+  "9":[
+    "Maths",
+    "Science",
+    "English"
+  ],
+
+  "10":[
+    "Maths",
+    "Science",
+    "English"
+  ],
+
+  "11":[
+    "Physics",
+    "Chemistry",
+    "Maths",
+    "Biology",
+    "English"
+  ],
+
+  "12":[
+    "Physics",
+    "Chemistry",
+    "Maths",
+    "Biology",
+    "English"
+  ]
+
+};
+
+
+const materialTypes = [
+
+  "Notes",
+  "Questions",
+  "DPP",
+  "Practice Sheets",
+  "PYQs",
+  "Test Papers",
+  "Important Questions"
+
+];
+
+
+/* =========================
+   SUBJECT SELECT
+========================= */
+
+function loadSubjects(){
+
+  const classValue =
+    document.getElementById(
+      "classSelect"
+    ).value;
+
+  const subjectSelect =
+    document.getElementById(
+      "subjectSelect"
+    );
+
+  const materialSelect =
+    document.getElementById(
+      "materialSelect"
+    );
+
+  const result =
+    document.getElementById(
+      "materialResult"
+    );
+
+
+  subjectSelect.innerHTML =
+    '<option value="">Select Subject</option>';
+
+  materialSelect.innerHTML =
+    '<option value="">Select Material Type</option>';
+
+  result.innerHTML = "";
+
+  materialSelect.disabled = true;
+
+
+  if(!classValue){
+
+    subjectSelect.disabled = true;
+
+    return;
+
+  }
+
+
+  subjects[classValue].forEach(
+    function(subject){
+
+      const option =
+        document.createElement("option");
+
+      option.value = subject;
+      option.textContent = subject;
+
+      subjectSelect.appendChild(option);
+
+    }
+  );
+
+
+  subjectSelect.disabled = false;
+
+}
+
+
+/* =========================
+   MATERIAL TYPES
+========================= */
+
+function loadMaterialTypes(){
+
+  const subject =
+    document.getElementById(
+      "subjectSelect"
+    ).value;
+
+  const materialSelect =
+    document.getElementById(
+      "materialSelect"
+    );
+
+  const result =
+    document.getElementById(
+      "materialResult"
+    );
+
+
+  materialSelect.innerHTML =
+    '<option value="">Select Material Type</option>';
+
+  result.innerHTML = "";
+
+
+  if(!subject){
+
+    materialSelect.disabled = true;
+
+    return;
+
+  }
+
+
+  materialTypes.forEach(
+    function(type){
+
+      const option =
+        document.createElement("option");
+
+      option.value = type;
+      option.textContent = type;
+
+      materialSelect.appendChild(option);
+
+    }
+  );
+
+
+  materialSelect.disabled = false;
+
+}
+
+
+/* =========================
+   SHOW MATERIALS
+========================= */
+
+async function showMaterials(){
+
+  const classValue =
+    document.getElementById(
+      "classSelect"
+    ).value;
+
+  const subject =
+    document.getElementById(
+      "subjectSelect"
+    ).value;
+
+  const type =
+    document.getElementById(
+      "materialSelect"
+    ).value;
+
+  const result =
+    document.getElementById(
+      "materialResult"
+    );
+
+
+  if(!type){
+
+    result.innerHTML = "";
+
+    return;
+
+  }
+
+
+  result.innerHTML = `
+    <div class="material-result-card">
+      <div class="loading">
+        ⏳ Loading study material...
+      </div>
+    </div>
+  `;
+
+
+  try{
+
+    const { data,error } =
+      await supabaseClient
+        .from("materials")
+        .select("*")
+        .eq("class",classValue)
+        .eq("subject",subject)
+        .eq("material_type",type)
+        .order("created_at",{ascending:false});
+
+
+    if(error){
+
+      console.error(error);
+
+      result.innerHTML = `
+        <div class="material-result-card">
+          <div class="material-empty">
+            ⚠️ Material Load नहीं हो पाया.
+          </div>
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    if(!data || data.length === 0){
+
+      result.innerHTML = `
+        <div class="material-result-card">
+
+          <div class="material-empty">
+
+            <h3>📚 No Material Available</h3>
+
+            <p>
+              अभी इस section में कोई material upload
+              नहीं किया गया है.
+            </p>
+
+          </div>
+
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    let html = `
+      <div class="material-result-card">
+
+        <h3>
+          📚 ${escapeHTML(type)}
+        </h3>
+
+        <p class="material-info">
+          Class ${escapeHTML(classValue)}
+          • ${escapeHTML(subject)}
+        </p>
+
+        <div class="material-list">
+    `;
+
+
+    for(const material of data){
+
+      let fileURL = "#";
+
+
+      if(material.file_path){
+
+        const {
+          data:signedData,
+          error:signedError
+        } =
+          await supabaseClient
+            .storage
+            .from("study-materials")
+            .createSignedUrl(
+              material.file_path,
+              3600
+            );
+
+
+        if(!signedError && signedData){
+
+          fileURL =
+            signedData.signedUrl;
+
+        }
+
+      }
+
+
+      html += `
+
+        <div class="material-item">
+
+          <div class="material-item-info">
+
+            <strong>
+              📄 ${escapeHTML(
+                material.title ||
+                material.file_name ||
+                "Study Material"
+              )}
+            </strong>
+
+            <span>
+              ${escapeHTML(
+                material.file_name ||
+                "Study Material"
+              )}
+            </span>
+
+          </div>
+
+          ${
+            fileURL !== "#"
+            ? `
+              <a
+                class="material-download"
+                href="${fileURL}"
+                target="_blank"
+                rel="noopener"
+              >
+                Open
+              </a>
+            `
+            : `
+              <span
+                class="material-download"
+                style="background:#98a2b3;"
+              >
+                Unavailable
+              </span>
+            `
+          }
+
+        </div>
+
+      `;
+
+    }
+
+
+    html += `
+        </div>
+      </div>
+    `;
+
+
+    result.innerHTML = html;
+
+
+  }catch(error){
+
+    console.error(error);
+
+    result.innerHTML = `
+      <div class="material-result-card">
+        <div class="material-empty">
+          ⚠️ Something went wrong.
+        </div>
+      </div>
+    `;
+
+  }
+
+}
+
+
+/* =========================
+   DOUBT SUBJECTS
+========================= */
+
+function loadDoubtSubjects(){
+
+  const select =
+    document.getElementById(
+      "doubtSubject"
+    );
+
+  if(!select){
+    return;
+  }
+
+  select.innerHTML =
+    '<option value="">Select Subject</option>';
+
+
+  Object.keys(subjects).forEach(function(classNumber){
+
+    subjects[classNumber].forEach(function(subject){
+
+      const exists =
+        Array.from(select.options)
+          .some(function(option){
+            return option.value === subject;
+          });
+
+
+      if(!exists){
+
+        const option =
+          document.createElement("option");
+
+        option.value = subject;
+        option.textContent = subject;
+
+        select.appendChild(option);
+
+      }
+
+    });
+
+  });
+
+}
+
+
+
+/* =========================
+   DOUBT SECTION
+========================= */
+
+async function submitDoubt(event){
+
+  event.preventDefault();
+
+  const student = getSavedStudentRegistration();
+  const subjectEl = document.getElementById("doubtSubject");
+  const doubtEl = document.getElementById("doubtText");
+  const button = event.submitter || document.querySelector("#doubtForm button[type=submit]");
+
+  if(!student || !student.id){
+    showDoubtMessage(
+      "Registration nahi mili. Please student registration complete karein.",
+      "error"
+    );
+    updateRegistrationUI();
+    return;
+  }
+
+  const subject = subjectEl ? subjectEl.value.trim() : "";
+  const doubtText = doubtEl ? doubtEl.value.trim() : "";
+
+  if(!subject){
+    showDoubtMessage("Please subject select karein.","error");
+    return;
+  }
+
+  if(!doubtText){
+    showDoubtMessage("Please apna doubt likhein.","error");
+    return;
+  }
+
+  if(button){
+    button.disabled = true;
+    button.textContent = "Submitting...";
+  }
+
+  try{
+
+    const { error } = await supabaseClient.rpc(
+      "submit_student_doubt",
+      {
+        p_registration_id: student.id,
+        p_subject: subject,
+        p_doubt_text: doubtText
+      }
+    );
+
+    if(error){
+      console.error("Doubt submission error:", error);
+
+      if(
+        String(error.message || "").toLowerCase().includes("student registration not found")
+      ){
+        localStorage.removeItem(STUDENT_REGISTRATION_STORAGE_KEY);
+        updateRegistrationUI();
+        showDoubtMessage(
+          "Registration record nahi mila. Please dobara register karein.",
+          "error"
+        );
+      }else{
+        showDoubtMessage(
+          "Doubt submit nahi ho paya: " + (error.message || "Unknown error"),
+          "error"
+        );
+      }
+
+      return;
+    }
+
+    if(doubtEl){
+      doubtEl.value = "";
+    }
+
+    showDoubtMessage(
+      "✅ Doubt successfully submit ho gaya. Teacher/Admin ise dekh kar reply kar sakte hain.",
+      "success"
+    );
+
+    await loadMyDoubts();
+
+  }catch(error){
+
+    console.error("Doubt submission exception:", error);
+
+    showDoubtMessage(
+      "Something went wrong. Please try again.",
+      "error"
+    );
+
+  }finally{
+
+    if(button){
+      button.disabled = false;
+      button.textContent = "Submit Doubt";
+    }
+
+  }
+
+}
+
+
+function showDoubtMessage(message,type){
+
+  const box =
+    document.getElementById(
+      "doubtMessage"
+    );
+
+  if(!box){
+    return;
+  }
+
+  box.textContent = message;
+
+  box.className =
+    "doubt-message show " +
+    type;
+
+}
+
+
+async function loadMyDoubts(){
+
+  const container =
+    document.getElementById("myDoubtsContainer");
+
+  const student =
+    getSavedStudentRegistration();
+
+  if(!container){
+    return;
+  }
+
+  if(!student || !student.id){
+    container.innerHTML = `
+      <div class="doubt-empty">
+        Registration complete karne ke baad yahan aapke doubts dikhेंगे.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="doubt-empty">
+      ⏳ Loading your doubts...
+    </div>
+  `;
+
+  try{
+
+    const { data,error } =
+      await supabaseClient.rpc(
+        "get_student_doubts",
+        {
+          p_registration_id: student.id
+        }
+      );
+
+    if(error){
+      console.error("Doubt history error:",error);
+
+      container.innerHTML = `
+        <div class="doubt-empty">
+          ⚠️ Doubts load नहीं हो पाए. Please try again.
+        </div>
+      `;
+      return;
+    }
+
+    if(!data || data.length === 0){
+      container.innerHTML = `
+        <div class="doubt-empty">
+          अभी आपने कोई doubt submit नहीं किया है.
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = data.map(function(doubt){
+
+      const status =
+        String(doubt.status || "pending").toLowerCase();
+
+      const statusText =
+        status === "replied" ? "Replied" : "Pending";
+
+      return `
+        <div class="doubt-card">
+
+          <div class="doubt-card-top">
+            <span class="doubt-subject">
+              ${escapeHTML(doubt.subject || "- ")}
+            </span>
+
+            <span class="doubt-status ${status === "replied" ? "replied" : "pending"}">
+              ${statusText}
+            </span>
+          </div>
+
+          <div class="doubt-text">
+            ${escapeHTML(doubt.doubt_text || "")}
+          </div>
+
+          ${
+            doubt.reply_text
+            ? `
+              <div class="doubt-reply">
+                <strong>👨‍🏫 Teacher/Admin Reply</strong>
+                <p>${escapeHTML(doubt.reply_text)}</p>
+              </div>
+            `
+            : `
+              <div class="doubt-date">
+                ⏳ Teacher/Admin ka reply abhi pending hai.
+              </div>
+            `
+          }
+
+          ${
+            doubt.created_at
+            ? `
+              <div class="doubt-date">
+                Submitted: ${new Date(doubt.created_at).toLocaleString("en-IN")}
+              </div>
+            `
+            : ""
+          }
+
+        </div>
+      `;
+
+    }).join("");
+
+  }catch(error){
+
+    console.error("Doubt history exception:",error);
+
+    container.innerHTML = `
+      <div class="doubt-empty">
+        ⚠️ Doubts load नहीं हो पाए. Please try again.
+      </div>
+    `;
+
+  }
+
+}
+
+
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL =
+  "https://sbckafdncwclnchvzubl.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+  "sb_publishable_Yvlr5Wdv8X4ViOgPyD3MFA_6NnRl9z6";
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY,
+    {
+      auth:{
+        persistSession:true,
+        autoRefreshToken:true,
+        detectSessionInUrl:true
+      }
+    }
+  );
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+function toggleMenu(){
+
+  document
+    .getElementById("nav")
+    .classList
+    .toggle("show");
+
+}
+
+document
+  .querySelectorAll("nav a")
+  .forEach(function(link){
+
+    link.addEventListener("click",function(){
+
+      document
+        .getElementById("nav")
+        .classList
+        .remove("show");
+
+    });
+
+  });
+
+
+
+/* =========================
+   STUDENT REGISTRATION
+========================= */
+
+const STUDENT_REGISTRATION_STORAGE_KEY =
+  "dmc_student_registration_v1";
+
+function getSavedStudentRegistration(){
+
+  try{
+
+    const raw =
+      localStorage.getItem(
+        STUDENT_REGISTRATION_STORAGE_KEY
+      );
+
+    if(!raw){
+      return null;
+    }
+
+    return JSON.parse(raw);
+
+  }catch(error){
+
+    console.error(
+      "Saved registration read error:",
+      error
+    );
+
+    return null;
+
+  }
+
+}
+
+
+function updateRegistrationUI(){
+
+  const savedStudent =
+    getSavedStudentRegistration();
+
+  const gate =
+    document.getElementById(
+      "registrationGate"
+    );
+
+  const headerName =
+    document.getElementById(
+      "studentHeaderName"
+    );
+
+  if(!gate){
+    return;
+  }
+
+  const doubtLoginBox =
+    document.getElementById("doubtLoginBox");
+
+  const doubtContent =
+    document.getElementById("doubtContent");
+
+  if(savedStudent){
+
+    gate.classList.add("hidden");
+
+    if(headerName){
+      headerName.textContent =
+        "👋 " +
+        (savedStudent.student_name || "Student");
+    }
+
+    if(doubtLoginBox){
+      doubtLoginBox.style.display = "none";
+    }
+
+    if(doubtContent){
+      doubtContent.style.display = "grid";
+    }
+
+  }else{
+
+    gate.classList.remove("hidden");
+
+    if(headerName){
+      headerName.textContent = "";
+    }
+
+    if(doubtLoginBox){
+      doubtLoginBox.style.display = "block";
+    }
+
+    if(doubtContent){
+      doubtContent.style.display = "none";
+    }
+
+  }
+
+}
+
+
+function showRegistrationMessage(message,type){
+
+  const box =
+    document.getElementById(
+      "registrationMessage"
+    );
+
+  if(!box){
+    return;
+  }
+
+  box.textContent = message;
+
+  box.className =
+    "registration-message show " +
+    type;
+
+}
+
+
+async function submitStudentRegistration(event){
+
+  event.preventDefault();
+
+  const button =
+    document.getElementById(
+      "studentRegistrationButton"
+    );
+
+  const name =
+    document
+      .getElementById("regStudentName")
+      .value
+      .trim();
+
+  const fatherName =
+    document
+      .getElementById("regFatherName")
+      .value
+      .trim();
+
+  const motherName =
+    document
+      .getElementById("regMotherName")
+      .value
+      .trim();
+
+  const address =
+    document
+      .getElementById("regAddress")
+      .value
+      .trim();
+
+  const personalMobile =
+    document
+      .getElementById("regPersonalMobile")
+      .value
+      .trim();
+
+  const parentsMobile =
+    document
+      .getElementById("regParentsMobile")
+      .value
+      .trim();
+
+  const studentClass =
+    document
+      .getElementById("regClass")
+      .value;
+
+  const schoolName =
+    document
+      .getElementById("regSchoolName")
+      .value
+      .trim();
+
+  const favouriteTeacher =
+    document
+      .getElementById("regFavouriteTeacher")
+      .value
+      .trim();
+
+
+  if(
+    !name ||
+    !fatherName ||
+    !motherName ||
+    !address ||
+    !personalMobile ||
+    !parentsMobile ||
+    !studentClass ||
+    !schoolName
+  ){
+
+    showRegistrationMessage(
+      "Please fill all required details.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const cleanPersonalMobile =
+    personalMobile.replace(/\s+/g,"");
+
+  const cleanParentsMobile =
+    parentsMobile.replace(/\s+/g,"");
+
+
+  if(
+    !/^[0-9+\-()]{8,15}$/.test(cleanPersonalMobile) ||
+    !/^[0-9+\-()]{8,15}$/.test(cleanParentsMobile)
+  ){
+
+    showRegistrationMessage(
+      "Please enter valid mobile numbers.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  button.disabled = true;
+  button.textContent = "Submitting...";
+
+
+  try{
+
+    const registrationId = crypto.randomUUID();
+
+    const { error } =
+      await supabaseClient
+        .from("student_registrations")
+        .insert({
+          id:registrationId,
+          student_name:name,
+          father_name:fatherName,
+          mother_name:motherName,
+          address:address,
+          personal_mobile:cleanPersonalMobile,
+          parents_mobile:cleanParentsMobile,
+          class:studentClass,
+          school_name:schoolName,
+          favourite_teacher:favouriteTeacher || null
+        });
+
+
+    if(error){
+
+      console.error(
+        "Student registration error:",
+        error
+      );
+
+      showRegistrationMessage(
+        "Registration submit नहीं हो पाया: " +
+        (error.message || "Unknown error"),
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /*
+      Registration database me save hone ke baad
+      browser me bhi save kar rahe hain.
+      Isse isi browser me form dobara nahi aayega.
+    */
+
+    localStorage.setItem(
+      STUDENT_REGISTRATION_STORAGE_KEY,
+      JSON.stringify({
+        id:registrationId,
+        student_name:name,
+        father_name:fatherName,
+        mother_name:motherName,
+        address:address,
+        personal_mobile:cleanPersonalMobile,
+        parents_mobile:cleanParentsMobile,
+        class:studentClass,
+        school_name:schoolName,
+        favourite_teacher:favouriteTeacher || null
+      })
+    );
+
+
+    showRegistrationMessage(
+      "✅ Registration successful! Website open ho rahi hai...",
+      "success"
+    );
+
+
+    setTimeout(function(){
+
+      updateRegistrationUI();
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    },500);
+
+
+  }catch(error){
+
+    console.error(
+      "Student registration exception:",
+      error
+    );
+
+    showRegistrationMessage(
+      "Something went wrong. Please try again.",
+      "error"
+    );
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent = "Enter Website →";
+
+  }
+
+}
+
+
+function showSavedStudentDetails(){
+
+  const student =
+    getSavedStudentRegistration();
+
+  if(!student){
+    updateRegistrationUI();
+    return;
+  }
+
+  const favouriteTeacher =
+    student.favourite_teacher ||
+    "Not provided";
+
+  alert(
+    "Student Details\n\n" +
+    "Student Name: " +
+    (student.student_name || "") +
+    "\nFather Name: " +
+    (student.father_name || "") +
+    "\nMother Name: " +
+    (student.mother_name || "") +
+    "\nAddress: " +
+    (student.address || "") +
+    "\nPersonal Mobile: " +
+    (student.personal_mobile || "") +
+    "\nParents Mobile: " +
+    (student.parents_mobile || "") +
+    "\nClass: " +
+    (student.class || "") +
+    "\nSchool Name: " +
+    (student.school_name || "") +
+    "\nFavourite Teacher: " +
+    favouriteTeacher
+  );
+
+}
+
+
+async function initializeStudentRegistration(){
+
+  updateRegistrationUI();
+
+  // Doubt subject dropdown ko registration/load ke time populate karo
+  loadDoubtSubjects();
+
+  // Saved student ke doubts bhi load karo
+  await loadMyDoubts();
+
+}
+
+
+/* =========================
+   ANNOUNCEMENTS
+========================= */
+
+async function loadAnnouncements(){
+
+  const container =
+    document.getElementById(
+      "announcementsContainer"
+    );
+
+  try{
+
+    const { data,error } =
+      await supabaseClient
+        .from("announcements")
+        .select("*")
+        .eq("is_active",true)
+        .order("is_pinned",{ascending:false})
+        .order("created_at",{ascending:false});
+
+
+    if(error){
+
+      console.error(error);
+
+      container.innerHTML = `
+        <div class="announcement-card">
+          <h3>⚠️ Announcements load नहीं हो पाए</h3>
+          <p>कृपया थोड़ी देर बाद फिर try करें.</p>
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    if(!data || data.length === 0){
+
+      container.innerHTML = `
+        <div class="announcement-card">
+          <h3>📢 No Announcements</h3>
+          <p>अभी कोई नया announcement available नहीं है.</p>
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      data.map(function(item){
+
+        const date =
+          item.created_at
+          ? new Date(item.created_at)
+              .toLocaleDateString(
+                "en-IN",
+                {
+                  day:"2-digit",
+                  month:"short",
+                  year:"numeric"
+                }
+              )
+          : "";
+
+
+        return `
+          <div class="announcement-card">
+
+            ${
+              item.is_pinned
+              ? `<span class="pin">📌 IMPORTANT</span>`
+              : ""
+            }
+
+            <h3>
+              ${escapeHTML(
+                item.title || "Announcement"
+              )}
+            </h3>
+
+            <p>
+              ${escapeHTML(
+                item.message || ""
+              ).replace(/\n/g,"<br>")}
+            </p>
+
+            ${
+              date
+              ? `
+                <span class="announcement-date">
+                  📅 ${date}
+                </span>
+              `
+              : ""
+            }
+
+          </div>
+        `;
+
+      }).join("");
+
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* =========================
+   DPP QUIZ
+========================= */
+
+let studentDPPQuestions = [];
+let studentDPPAnswers = {};
+let studentDPPIndex = 0;
+let studentCurrentDPP = null;
+
+function loadStudentDPPSubjects(){
+
+  const classEl = document.getElementById("dppClassSelect");
+  const classValue = classEl ? classEl.value : "";
+  const subjectSelect = document.getElementById("dppSubjectSelect");
+  const list = document.getElementById("dppList");
+  const quiz = document.getElementById("dppQuizArea");
+
+  subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+  list.innerHTML = "";
+  quiz.innerHTML = "";
+  if(!classValue){
+    return;
+  }
+
+  (subjects[classValue] || []).forEach(function(subject){
+    const option = document.createElement("option");
+    option.value = subject;
+    option.textContent = subject;
+    subjectSelect.appendChild(option);
+  });
+
+}
+
+async function loadStudentDPPs(){
+
+  const classValue = document.getElementById("dppClassSelect").value;
+  const subject = document.getElementById("dppSubjectSelect").value;
+  const list = document.getElementById("dppList");
+  const quiz = document.getElementById("dppQuizArea");
+
+  list.innerHTML = "";
+  quiz.innerHTML = "";
+
+  if(!classValue || !subject){
+    return;
+  }
+
+  list.innerHTML = '<div class="dpp-message">⏳ Loading DPPs...</div>';
+
+  try{
+    const {data,error} = await supabaseClient
+      .from("dpp_sets")
+      .select("id,class,subject,chapter,title,description")
+      .eq("class",classValue)
+      .eq("subject",subject)
+      .eq("is_active",true)
+      .order("created_at",{ascending:false});
+
+    if(error){
+      console.error("DPP list error:",error);
+      list.innerHTML = '<div class="dpp-message">⚠️ DPPs load नहीं हो पाए. Please try again.</div>';
+      return;
+    }
+
+    if(!data || data.length === 0){
+      list.innerHTML = '<div class="dpp-message">📚 अभी इस subject में कोई DPP available नहीं है.</div>';
+      return;
+    }
+
+    list.innerHTML = data.map(function(dpp){
+      return `
+        <div class="dpp-card">
+          <h3>📝 ${escapeHTML(dpp.title)}</h3>
+          <p><strong>Chapter:</strong> ${escapeHTML(dpp.chapter)}</p>
+          ${dpp.description ? `<p>${escapeHTML(dpp.description)}</p>` : ""}
+          <button class="btn primary" type="button" onclick="startStudentDPP('${dpp.id}')">
+            Start DPP →
+          </button>
+        </div>
+      `;
+    }).join("");
+
+  }catch(error){
+    console.error(error);
+    list.innerHTML = '<div class="dpp-message">⚠️ Something went wrong while loading DPPs.</div>';
+  }
+}
+
+async function startStudentDPP(dppId){
+
+  openStudentDPPFullscreen("DPP Quiz");
+  const quiz = document.getElementById("dppFullscreenBody");
+  quiz.innerHTML = '<div class="dpp-quiz-card">⏳ Loading questions...</div>';
+  studentDPPAnswers = {};
+  studentDPPIndex = 0;
+  studentCurrentDPP = null;
+
+  try{
+    const {data,error} = await supabaseClient.rpc("get_student_dpp_questions",{
+      p_dpp_id:dppId
+    });
+
+    if(error){
+      console.error("DPP questions error:",error);
+      quiz.innerHTML = '<div class="dpp-message">⚠️ Questions load नहीं हो पाए. Please try again.</div>';
+      return;
+    }
+
+    if(!data || data.length === 0){
+      quiz.innerHTML = '<div class="dpp-message">इस DPP में अभी कोई question नहीं है.</div>';
+      return;
+    }
+
+    studentDPPQuestions = data.sort(function(a,b){
+      return Number(a.question_no) - Number(b.question_no);
+    });
+
+    studentCurrentDPP = dppId;
+    renderStudentDPPQuestion();
+
+  }catch(error){
+    console.error(error);
+    quiz.innerHTML = '<div class="dpp-message">⚠️ Something went wrong.</div>';
+  }
+}
+
+function openStudentDPPFullscreen(title){
+  const overlay = document.getElementById("dppFullscreen");
+  const titleEl = document.getElementById("dppFullscreenTitle");
+  if(titleEl) titleEl.textContent = title || "DPP Quiz";
+  if(overlay) overlay.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+function closeStudentDPPFullscreen(){
+  studentDPPQuestions = [];
+  studentDPPAnswers = {};
+  studentDPPIndex = 0;
+  studentCurrentDPP = null;
+  const overlay = document.getElementById("dppFullscreen");
+  if(overlay) overlay.classList.remove("show");
+  document.body.style.overflow = "";
+  const body = document.getElementById("dppFullscreenBody");
+  if(body) body.innerHTML = "";
+}
+
+function renderStudentDPPQuestion(){
+
+  const quiz = document.getElementById("dppFullscreenBody");
+  const q = studentDPPQuestions[studentDPPIndex];
+
+  if(!q){
+    return;
+  }
+
+  const selected = studentDPPAnswers[q.id] || "";
+  const isLast = studentDPPIndex === studentDPPQuestions.length - 1;
+
+  quiz.innerHTML = `
+    <div class="dpp-quiz-card">
+      <div class="dpp-progress">
+        Question ${studentDPPIndex + 1} of ${studentDPPQuestions.length}
+      </div>
+
+      <div class="dpp-question">
+        ${studentDPPIndex + 1}. ${escapeHTML(q.question_text)}
+      </div>
+
+      ${dppOptionHTML(q,"A",selected)}
+      ${dppOptionHTML(q,"B",selected)}
+      ${dppOptionHTML(q,"C",selected)}
+      ${dppOptionHTML(q,"D",selected)}
+
+      <div class="dpp-actions">
+        <button class="btn" type="button" onclick="previousStudentDPPQuestion()" ${studentDPPIndex === 0 ? "disabled" : ""}>
+          ← Previous
+        </button>
+        <button class="btn primary" type="button" onclick="${isLast ? "submitStudentDPP()" : "nextStudentDPPQuestion()"}">
+          ${isLast ? "Submit DPP ✓" : "Next →"}
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function dppOptionHTML(q,letter,selected){
+  const text = q["option_" + letter.toLowerCase()] || "";
+  return `
+    <label class="dpp-option ${selected === letter ? "selected" : ""}">
+      <input
+        type="radio"
+        name="dppAnswer"
+        value="${letter}"
+        ${selected === letter ? "checked" : ""}
+        onchange="selectStudentDPPAnswer('${letter}')"
+      >
+      <strong>${letter}.</strong> ${escapeHTML(text)}
+    </label>
+  `;
+}
+
+function selectStudentDPPAnswer(letter){
+  const q = studentDPPQuestions[studentDPPIndex];
+  if(!q){ return; }
+  studentDPPAnswers[q.id] = letter;
+  renderStudentDPPQuestion();
+}
+
+function nextStudentDPPQuestion(){
+  if(studentDPPIndex < studentDPPQuestions.length - 1){
+    studentDPPIndex++;
+    renderStudentDPPQuestion();
+  }
+}
+
+function previousStudentDPPQuestion(){
+  if(studentDPPIndex > 0){
+    studentDPPIndex--;
+    renderStudentDPPQuestion();
+  }
+}
+
+async function submitStudentDPP(){
+
+  if(!studentCurrentDPP || !studentDPPQuestions.length){
+    return;
+  }
+
+  const quiz = document.getElementById("dppFullscreenBody");
+  quiz.innerHTML = '<div class="dpp-quiz-card">⏳ Checking your answers...</div>';
+
+  try{
+    const {data,error} = await supabaseClient.rpc("submit_student_dpp",{
+      p_dpp_id:studentCurrentDPP,
+      p_answers:studentDPPAnswers
+    });
+
+    if(error){
+      console.error("DPP submit error:",error);
+      quiz.innerHTML = '<div class="dpp-message">⚠️ DPP submit नहीं हो पाया. Please try again.</div>';
+      return;
+    }
+
+    renderStudentDPPResult(data);
+
+  }catch(error){
+    console.error(error);
+    quiz.innerHTML = '<div class="dpp-message">⚠️ Something went wrong.</div>';
+  }
+}
+
+function renderStudentDPPResult(result){
+
+  const quiz = document.getElementById("dppFullscreenBody");
+  const titleEl = document.getElementById("dppFullscreenTitle");
+  if(titleEl) titleEl.textContent = "DPP Result";
+  const r = result || {};
+  const review = Array.isArray(r.review) ? r.review : [];
+
+  quiz.innerHTML = `
+    <div class="dpp-result">
+      <h2>🎉 DPP Result</h2>
+      <div class="dpp-score">${escapeHTML(r.score ?? 0)} / ${escapeHTML(r.total_marks ?? 0)}</div>
+
+      <div class="dpp-stat-grid">
+        <div class="dpp-stat"><strong>${escapeHTML(r.total_questions ?? 0)}</strong><br>Total</div>
+        <div class="dpp-stat"><strong>${escapeHTML(r.attempted ?? 0)}</strong><br>Attempted</div>
+        <div class="dpp-stat"><strong>${escapeHTML(r.correct ?? 0)}</strong><br>Correct</div>
+        <div class="dpp-stat"><strong>${escapeHTML(r.wrong ?? 0)}</strong><br>Wrong</div>
+      </div>
+
+      <div class="dpp-review">
+        <h3>Question Review</h3>
+        ${review.map(function(item){
+          const cls = item.selected_option ? (item.is_correct ? "correct" : "wrong") : "unattempted";
+          return `
+            <div class="dpp-review-item ${cls}">
+              <div class="dpp-review-status ${cls}">${item.selected_option ? (item.is_correct ? "✓ Correct" : "✗ Wrong") : "○ Not Attempted"}</div>
+              <strong>Q${escapeHTML(item.question_no)}. ${escapeHTML(item.question_text)}</strong>
+              <p><strong>Your answer:</strong> ${escapeHTML(item.selected_option || "Not attempted")}</p>
+              <p><strong>Correct answer:</strong> ${escapeHTML(item.correct_option)}</p>
+              ${item.explanation ? `<p><strong>Explanation:</strong> ${escapeHTML(item.explanation)}</p>` : ""}
+            </div>
+          `;
+        }).join("")}
+      </div>
+
+      <div class="dpp-actions">
+        <button class="btn" type="button" onclick="closeStudentDPPFullscreen()">← Back to DPPs</button>
+      </div>
+    </div>
+  `;
+}
+
+function resetStudentDPPQuiz(){
+  studentDPPQuestions = [];
+  studentDPPAnswers = {};
+  studentDPPIndex = 0;
+  studentCurrentDPP = null;
+  document.getElementById("dppFullscreenBody").innerHTML = "";
+  loadStudentDPPs();
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+async function loadResults(classValue){
+
+  const container =
+    document.getElementById(
+      "resultsContainer"
+    );
+
+
+  container.innerHTML = `
+    <div class="student-result-item">
+      <div class="loading">
+        ⏳ Loading results...
+      </div>
+    </div>
+  `;
+
+
+  try{
+
+    const { data,error } =
+      await supabaseClient
+        .from("results")
+        .select("*")
+        .eq("class",classValue)
+        .eq("is_active",true)
+        .order("percentage",{ascending:false});
+
+
+    if(error){
+
+      console.error(error);
+
+      container.innerHTML = `
+        <div class="student-result-item">
+          <strong>⚠️ Results load नहीं हो पाए</strong>
+          <span>कृपया थोड़ी देर बाद फिर try करें.</span>
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    if(!data || data.length === 0){
+
+      container.innerHTML = `
+        <div class="student-result-item">
+          <strong>📊 No Results Available</strong>
+          <span>
+            Class ${escapeHTML(classValue)}
+            के results अभी upload नहीं किए गए हैं.
+          </span>
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      data.map(function(item){
+
+        return `
+
+          <div class="student-result-item">
+
+            <strong>
+              🏆 ${escapeHTML(
+                item.student_name || "Student"
+              )}
+            </strong>
+
+            ${
+              item.roll_number
+              ? `
+                <span>
+                  Roll Number:
+                  ${escapeHTML(item.roll_number)}
+                </span>
+              `
+              : ""
+            }
+
+            ${
+              item.marks !== null &&
+              item.marks !== undefined &&
+              item.marks !== ""
+              ? `
+                <span>
+                  Marks:
+                  ${escapeHTML(item.marks)}
+                </span>
+              `
+              : ""
+            }
+
+            ${
+              item.percentage !== null &&
+              item.percentage !== undefined &&
+              item.percentage !== ""
+              ? `
+                <span>
+                  Percentage:
+                  ${escapeHTML(item.percentage)}%
+                </span>
+              `
+              : ""
+            }
+
+            ${
+              item.rank
+              ? `
+                <span>
+                  Rank:
+                  ${escapeHTML(item.rank)}
+                </span>
+              `
+              : ""
+            }
+
+          </div>
+
+        `;
+
+      }).join("");
+
+
+  }catch(error){
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* =========================
+   HTML SAFETY
+========================= */
+
+function escapeHTML(value){
+
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadAnnouncements();
+
+initializeStudentRegistration();
+
+loadCommunityFeed();
+
+
+window.loadStudentDPPSubjects = loadStudentDPPSubjects;
+window.loadStudentDPPs = loadStudentDPPs;
+window.startStudentDPP = startStudentDPP;
+window.selectStudentDPPAnswer = selectStudentDPPAnswer;
+window.nextStudentDPPQuestion = nextStudentDPPQuestion;
+window.previousStudentDPPQuestion = previousStudentDPPQuestion;
+window.submitStudentDPP = submitStudentDPP;
+window.resetStudentDPPQuiz = resetStudentDPPQuiz;
+window.submitCommunityPost = submitCommunityPost;
+window.toggleCommunityLike = toggleCommunityLike;
+window.submitCommunityComment = submitCommunityComment;
+window.loadCommunityFeed = loadCommunityFeed;
+window.deleteCommunityPost = deleteCommunityPost;
+
+document.addEventListener("DOMContentLoaded", function(){
+  const classSelect = document.getElementById("dppClassSelect");
+  const subjectSelect = document.getElementById("dppSubjectSelect");
+  if(classSelect) classSelect.addEventListener("change", loadStudentDPPSubjects);
+  if(subjectSelect) subjectSelect.addEventListener("change", loadStudentDPPs);
+});
+
+
+window.addEventListener("load",function(){
+  if(window.location.hash==="#community"){
+    openCommunityFullscreen();
+  }
+});
+</script>
+
+
+<!-- DPP FULLSCREEN OVERLAY -->
+<div id="dppFullscreen" class="dpp-fullscreen">
+  <div class="dpp-fullscreen-head">
+    <div id="dppFullscreenTitle" class="dpp-fullscreen-title">DPP Quiz</div>
+    <button class="dpp-cancel" type="button" onclick="closeStudentDPPFullscreen()">✕ Cancel</button>
+  </div>
+  <div id="dppFullscreenBody" class="dpp-fullscreen-body"></div>
+</div>
+
+</body>
+</html>
